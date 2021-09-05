@@ -1,0 +1,6 @@
+dags/__pycache__
+plugins/helpers/__pycache__
+plugins/helpers/__init__.py
+plugins/__init__.py
+plugins/operators/__init__.py
+plugins/operators/__pycache__
