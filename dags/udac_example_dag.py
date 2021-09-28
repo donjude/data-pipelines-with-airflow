@@ -99,9 +99,8 @@ load_time_dimension_table = LoadDimensionOperator(
 run_quality_checks = DataQualityOperator(
     task_id='Run_data_quality_checks',
     dag=dag,
-    redshift_conn_id="redshift"
-#     sql_null_checks=SqlQueries.null_checks,
-#     expected_results=SqlQueries.exp_results
+    redshift_conn_id="redshift",
+    tables=["songplays", "users", "songs", "artists", "time"]
 )
 
 end_operator = DummyOperator(task_id='Stop_execution',  dag=dag)
