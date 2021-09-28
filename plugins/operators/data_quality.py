@@ -8,20 +8,6 @@ class DataQualityOperator(BaseOperator):
 
     @apply_defaults
     def __init__(self,
-<<<<<<< HEAD
-                 # Define your operators params (with defaults) here
-                 # Example:
-                 # conn_id = your-connection-name
-                 *args, **kwargs):
-
-        super(DataQualityOperator, self).__init__(*args, **kwargs)
-        # Map params here
-        # Example:
-        # self.conn_id = conn_id
-
-    def execute(self, context):
-        self.log.info('DataQualityOperator not implemented yet')
-=======
                  redshift_conn_id="",
                  sql_null_checks=[],
                  expected_results=[],
@@ -47,4 +33,3 @@ class DataQualityOperator(BaseOperator):
                 raise ValueError('data quality test {} failed'.format(i))
             else:
                 self.log.info("data quality test {} passed".format(i))
->>>>>>> origin/main
