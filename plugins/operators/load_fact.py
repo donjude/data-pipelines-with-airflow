@@ -15,7 +15,7 @@ class LoadFactOperator(BaseOperator):
     def __init__(self,
                  table="",
                  redshift_conn_id="",
-                 sqlquery=sqlquery
+                 sqlquery="",
                  *args, **kwargs):
 
         super(LoadFactOperator, self).__init__(*args, **kwargs)

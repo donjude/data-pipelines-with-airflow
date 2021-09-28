@@ -12,6 +12,7 @@ class StageToRedshiftOperator(BaseOperator):
         SECRET_ACCESS_KEY '{}'
         TIMEFORMAT AS 'epochmillisecs'
         COMPUPDATE OFF
+        ;
     """
 
     @apply_defaults
@@ -36,6 +37,9 @@ class StageToRedshiftOperator(BaseOperator):
         aws_hook = AwsHook(self.aws_credentials_id)
         credentials = aws_hook.get_credentials()
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
+        
+        self.log.info("Clearing data from destination Redshift table")
+        redshift.run("DELETE FROM {}".format(self.table))
         
         rendered_key = self.s3_key.format(**context)
         s3_path = "s3://{}/{}".format(self.s3_bucket, rendered_key)
