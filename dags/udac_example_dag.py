@@ -47,7 +47,7 @@ stage_songs_to_redshift = StageToRedshiftOperator(
     s3_bucket="udacity-dend",
     s3_key="song_data",
     region="us-west-2",
-    extra_params="JSON 'auto' COMPUPDATE OFF"
+    extra_params="FORMAT AS JSON 'auto'"
 )
 
 load_songplays_table = LoadFactOperator(
