@@ -161,30 +161,40 @@ Here, we'll use Airflow's UI to configure your AWS credentials and connection to
 
 2. Click on the Admin tab and select Connections.
 
+    ![conn1](images/conn1.png)
+
 3. Under Connections, select Create.
 
+    ![conn2](images/conn2.png)
+
 4. On the create connection page, enter the following values:
-    - Conn Id: Enter aws_credentials.
-    - Conn Type: Enter Amazon Web Services.
-    - Login: Enter your Access key ID from the IAM User credentials you downloaded earlier.
-    - Password: Enter your Secret access key from the IAM User credentials you downloaded earlier.
+    - **Conn Id**: Enter aws_credentials.
+    - **Conn Type**: Enter Amazon Web Services.
+    - **Login**: Enter your Access key ID from the IAM User credentials you downloaded earlier.
+    - **Password**: Enter your Secret access key from the IAM User credentials you downloaded earlier.
 
     Once you've entered these values, select Save and Add Another.
 
-    On the next create connection page, enter the following values:
-        Conn Id: Enter redshift.
-        Conn Type: Enter Postgres.
-        Host: Enter the endpoint of your Redshift cluster, excluding the port at the end. You can find this by selecting your cluster in the Clusters page of the Amazon Redshift console. See where this is located in the screenshot below. IMPORTANT: Make sure to NOT include the port at the end of the Redshift endpoint string.
-        Schema: Enter dev. This is the Redshift database you want to connect to.
-        Login: Enter awsuser.
-        Password: Enter the password you created when launching your Redshift cluster.
-        Port: Enter 5439.
+    ![conn3](images/conn3.png)
+
+5. On the next create connection page, enter the following values:
+
+    - **Conn Id**: Enter redshift.
+    - **Conn Type**: Enter Postgres.
+    - **Host**: Enter the endpoint of your Redshift cluster, excluding the port at the end. You can find this by selecting your cluster in the Clusters page of the Amazon Redshift console. See where this is located in the screenshot below. IMPORTANT: Make sure to NOT include the port at the end of the Redshift endpoint string.
+    - **Schema**: Enter dev. This is the Redshift database you want to connect to.
+    - **Login**: Enter awsuser.
+    - **Password**: Enter the password you created when launching your Redshift cluster.
+    - **Port**: Enter 5439.
 
     Once you've entered these values, select Save.
 
-Awesome! You're now all configured to run Airflow with Redshift.
+    ![conn4](images/conn4.png)
+    ![conn5](images/conn5.png)
 
-3. execute the below code in the bash shell to run the etl process.
-4. execute the below code in the bash shell to run the etl process.
-5. execute the below code in the bash shell to run the etl process.
-6. execute the below code in the bash shell to run the etl process.
+### Execute Dag
+
+8. Go back to the dag page under Run Script step 7 and turn on the dag.
+9. Click on the Tree View to view the dag run. When a Dag turns green it shows a successful execution of all the tasks in the pipeline, where it turns red it shows it fails and some of the steps that turns red or in yellow requires some attention.
+
+    ![dag3](images/dag3.png)
